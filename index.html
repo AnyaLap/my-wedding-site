@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wed</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+            rel="shortcut icon"
+            href="media/icons/icon.png"
+            type="image/png"
+        />
+</head>
+<body>
+    <div class="invitation">
+       
+        <header class="header">
+            <h1>Такая Нежная Любовь...</h1>
+            <button type="button" id="soundButton" class="off">
+                <img src="media/icons/song.png" />
+            </button>
+              <audio id="sound" src="media/music/Beautiful_Boys_-_Nezhnaya_Lyubov.mp3"></audio>
+        </header>
+        
+        <section class="photos">
+                <div class="name">
+                    <p>НИКОЛАЙ</p>
+                    <p class="and">&</p>
+                    <p>АННА</p>
+                </div>
+                <div class="polaroids autoShow">
+                    <div class="polaroid first-photo">
+                        <img src="media/images/anna.JPG" alt="Анюта">
+                        <div class="caption"><span class="span">-</span> Интересно, кто будет моим мужем?</div>
+                    </div>
+                    <div class="polaroid second-photo">
+                        <img src="media/images/nikolay.JPG" alt="Коляша">
+                        <div class="caption"><span class="span">-</span> Я буду!</div>
+                    </div>
+                </div>
+        </section>
+
+        <section class="welcome autoShow">
+            <h2>Дорогие родные и близкие!</h2>
+            <div class="text">
+                <p>Приглашаем вас разделить с нами радость особенного для нас события и стать частью нашей семейной истории!</p>
+                <p>Мы будем очень рады видеть Вас на нашем свадебном ужине!</p>
+            </div>
+            <p class="data">14/06/2025</p>
+        </section>
+
+        <section class="dress autoShow">
+            <h2>Дресс-код</h2>
+            <div class="text">
+                <p>Мы ценим комфорт и не хотим обременять вас выбором нарядов определенных оттенков!</p>
+                <p>Поэтому мы будем очень рады, если мужчины выберут деловой стиль, а милые дамы наряды пастельных оттенков! </p>
+                <p>Это подчеркнет нежность нашего события!</p>
+            </div>
+        </section>
+
+        <section class="map autoShow">
+            <h2>Место проведения</h2>
+            <p class="rest">Нижний Новгород, Октябрьская улица, 16/10</p>
+            <p class="rest">Ресторан "Lamvil"</p>
+            <h3>Время ужина</h3>
+            <p class="time">16:00</p>
+            <div style="position:relative;overflow:hidden;">
+                <a href="https://yandex.ru/maps/org/lamvil/55546712213/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Lamvil</a>
+                <a href="https://yandex.ru/maps/47/nizhny-novgorod/category/restaurant/184106394/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Ресторан в Нижнем Новгороде</a>
+                <a href="https://yandex.ru/maps/47/nizhny-novgorod/category/banquet_hall/184108315/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:28px;">Банкетный зал в Нижнем Новгороде</a>
+                <iframe src="https://yandex.ru/map-widget/v1/?ll=44.005995%2C56.322629&mode=search&oid=55546712213&ol=biz&z=16.29" width=100% height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+            </div>
+        </section>
+
+        <section class=" RSVP autoShow">
+            <h2>Подтвердите ваше присутствие</h2>
+            <p class="notification">Заполните форму до 30.05.2025</p>
+            <form id="rsvp-form">
+                <label for="name">Имя и Фамилия:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="allergy">Есть ли аллергия на какие-то продукты?</label>
+                <input type="text" id="allergy" name="allergy">
+
+                <label for="food">Какое горячее предпочитаете:</label>
+                <select id="food" name="food">
+                    <option value="" disabled selected hidden>-Выберите блюдо-</option>
+                    <option value="bird">Птица</option>
+                    <option value="meat">Мясо</option>
+                    <option value="fish">Рыба</option>
+                </select>
+                <label for="drink">Какой напиток предпочитаете:</label>
+                <select id="drink" name="drink">
+                    <option value="" disabled selected hidden>-Выберите напиток-</option>
+                    <option value="champagne">Шампанское</option>
+                    <option value="wine-white-dry">Вино бел. сух.</option>
+                    <option value="wine-white-sweet">Вино бел. п/с.</option>
+                    <option value="wine-red-dry">Вино кр. сух.</option>
+                    <option value="wine-red-sweet">Вино кр. п/с.</option>
+                    <option value="brandy">Коньяк</option>
+                    <option value="whisky">Виски</option>
+                    <option value="vodka">Водка</option>
+                    <option value="juice">Сок</option>
+                </select>
+
+                <label>
+                    <input type="radio" name="attendance" value="yes" required> Обязательно приду!
+                </label>
+                <label>
+                    <input type="radio" name="attendance" value="no" required> К сожалению, не смогу придти!
+                </label>
+
+                <button type="submit">Отправить</button>
+            </form>
+        </section>
+
+        <section class="countdown autoBlur">
+            <h2>До события осталось:</h2>
+            <div id="countdown">
+                <div><span id="days">00</span> дн</div>
+                <div><span id="hours">00</span> ч</div>
+                <div><span id="minutes">00</span> мин</div>
+                <div><span id="seconds">00</span> сек</div>
+            </div>
+        </section>
+
+        <footer>
+            <h2>До встречи!</h2>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
