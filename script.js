@@ -31,7 +31,7 @@ playMusic();
 
 
 // Отсчет времени до события
-const eventDate = new Date("2025-06-14T00:00:00").getTime();
+const eventDate = new Date("2025-06-15T00:00:00").getTime();
 
 // Обновления отсчета каждую секунду
 const countdownInterval = setInterval(() => {
@@ -59,20 +59,29 @@ const countdownInterval = setInterval(() => {
 
 
 //Форма
-document.getElementById('rsvp-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Предотвращаем стандартное поведение формы
 
-    // Собираем данные из формы
-    var formData = new FormData(this);
-    
-    fetch('https://script.google.com/macros/s/AKfycbyjQva_-Tksqd1Wjxr0RQ2lascgjWRhuhk4jYEpEcItpj8IBydK88JWQh1p2gXFz0BZ/exec', {
-        method: 'POST',
-        body: formData, // Отправляем данные формы
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert(data); // Показываем сообщение о результате отправки
-        this.reset(); // Очищаем форму после отправки
-    })
-    .catch(error => console.error('Ошибка:', error));
+document.getElementById('rsvp-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  console.log('Submitting form...');
+
+  let xhr = new XMLHttpRequest();
+  xhr.open('POST', this.action);
+  console.log('Sending data to:', this.action);
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        let response = xhr.responseText;
+        console.log(response);
+      } else {
+        console.error(`Error ${xhr.status}: ${xhr.statusText}`);
+      }
+      
+      // Сброс формы в любом случае
+      document.getElementById('rsvp-form').reset();
+    }
+  };
+
+  xhr.send(new FormData(this));
 });
